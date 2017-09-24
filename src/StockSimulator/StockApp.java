@@ -15,7 +15,7 @@ public class StockApp extends Application {
         GetTheStock appl = new GetTheStock(20.05, stockGrabber, StockNames.AAPL_NAME.getName());
         GetTheStock goog = new GetTheStock(20.00, stockGrabber, StockNames.GOOG_NAME.getName());
         GetTheStock ibm = new GetTheStock(20.00, stockGrabber, StockNames.IBM_NAME.getName());
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("main.fxml"));
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.show();
