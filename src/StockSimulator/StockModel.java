@@ -1,42 +1,46 @@
 package StockSimulator;
 
 import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleStringProperty;
 
-public class StockModel {
+public  class StockModel {
     private final SimpleDoubleProperty IBM = new SimpleDoubleProperty();
     private final SimpleDoubleProperty AAPL = new SimpleDoubleProperty();
     private final SimpleDoubleProperty GOOG = new SimpleDoubleProperty();
 
     public StockModel(){
-        this(0.0,0.0,0.0);
+        this(0.0, 0.0, 0.0);
     }
 
-    public StockModel(Double ibm, Double aapl, Double goog){
+    public StockModel(double ibm, double aapl, double goog){
         setIbm(ibm);
         setAapl(aapl);
         setGoog(goog);
     }
 
-    public double getIbm(){
+    public double getIBM(){
         return IBM.get();
     }
 
     public void setIbm(double ibm){
-        IBM.set(ibm);
+        Double number = new Double(ibm);
+        IBM.set(number);
     }
-    public double getAapl(){
+    public double getAAPL(){
         return AAPL.get();
     }
 
     public void setAapl(double aapl){
-        AAPL.set(aapl);
-    }
+        Double number = new Double(aapl);
 
-    public double getGoog(){
+        AAPL.set(number);
+    }
+    public double getGOOG(){
         return GOOG.get();
     }
     public void setGoog(double goog){
-        GOOG.set(goog);
+        Double number = new Double(goog);
+        GOOG.set(number);
     }
 
 

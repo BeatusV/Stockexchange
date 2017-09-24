@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
-
-
+<?import javafx.scene.control.cell.*?>
+<?import javafx.collections.*?>
 
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TableColumn?>
-
-<?import javafx.scene.control.cell.PropertyValueFactory?>
 <GridPane prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="StockSimulator.TableViewController">
 
    <padding>
@@ -24,16 +22,16 @@
    <TableView fx:id="tableView" GridPane.columnIndex="0"
               GridPane.rowIndex="1">
       <columns>
-         <TableColumn text="IBM">
-            <cellValueFactory><PropertyValueFactory property="iBM" />
+         <TableColumn  text="IBM">
+            <cellValueFactory><PropertyValueFactory  property="IBM" />
             </cellValueFactory>
          </TableColumn>
          <TableColumn text="AAPL">
-            <cellValueFactory><PropertyValueFactory property="aAPL" />
+            <cellValueFactory><PropertyValueFactory property="AAPL" />
             </cellValueFactory>
          </TableColumn>
          <TableColumn text="GOOG">
-            <cellValueFactory><PropertyValueFactory property="gOOG" />
+            <cellValueFactory><PropertyValueFactory property="GOOG" />
             </cellValueFactory>
          </TableColumn>
       </columns>
