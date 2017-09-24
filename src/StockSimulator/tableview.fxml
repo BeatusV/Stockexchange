@@ -1,11 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="StockSimulator.TableViewController">
 
-      <Label layoutX="286.0" layoutY="192.0" text="Test" />
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
 
-</AnchorPane>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<GridPane prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="StockSimulator.TableViewController">
+
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+   <Label style="-fx-font: NORMAL 20 Tahoma;" text="Stock Exchange"
+          GridPane.columnIndex="0" GridPane.rowIndex="0">
+   </Label>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+   <TableView fx:id="tableView" GridPane.columnIndex="0"
+              GridPane.rowIndex="1">
+      <columns>
+         <TableColumn text="IBM">
+            <cellValueFactory><PropertyValueFactory property="iBM" />
+            </cellValueFactory>
+         </TableColumn>
+         <TableColumn text="AAPL">
+            <cellValueFactory><PropertyValueFactory property="aAPL" />
+            </cellValueFactory>
+         </TableColumn>
+         <TableColumn text="GOOG">
+            <cellValueFactory><PropertyValueFactory property="gOOG" />
+            </cellValueFactory>
+         </TableColumn>
+      </columns>
+   </TableView>
+</GridPane>

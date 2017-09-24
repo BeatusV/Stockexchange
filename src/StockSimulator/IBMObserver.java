@@ -19,12 +19,13 @@ public class IBMObserver implements Observer{
     @Override
     public void update(double ibmPrice, double aaplPrice, double gooPrice) {
 
-            printThePrices();  this.ibmPrice = ibmPrice;
+            printThePrices();
+        this.ibmPrice = ibmPrice;
         this.aaplPrice = aaplPrice;
         this.googPrice = gooPrice;
     }
 
-    public void printThePrices(){
+    private void printThePrices(){
 
         System.out.println(observerID + "\nIBM: " + ibmPrice + "\nAAPL: " +
                 aaplPrice + "\nGOOG: " + googPrice + "\n");
