@@ -1,5 +1,7 @@
 package StockSimulator;
 
+import StockSimulator.Observers.Observer;
+
 /**
  * A subject contains the list of observers. It can register new Observers an unregister old ones.
  * Als it is able to notify ALL observers at once.

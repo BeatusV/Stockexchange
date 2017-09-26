@@ -1,7 +1,7 @@
 package StockSimulator.Views;
 
 import StockSimulator.Controllers.TaskBarController;
-import StockSimulator.StockNames;
+import StockSimulator.Dictionary.StockNames;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 

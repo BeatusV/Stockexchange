@@ -1,4 +1,4 @@
-package StockSimulator;
+package StockSimulator.Dictionary;
 
 import javax.print.DocFlavor;
 

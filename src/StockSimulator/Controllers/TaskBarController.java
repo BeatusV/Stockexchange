@@ -10,29 +10,30 @@ import javafx.scene.control.TableView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 
+import java.util.ArrayList;
+import java.util.Map;
+
 /**
  * Created by peter on 26-9-17.
  */
 public class TaskBarController implements EventHandler{
     private final TaskBar taskBar;
     private final VBox field;
-    private final IBMTableView ibmTableView;
-    private final AAPLTableView aaplTableView;
-    public TaskBarController(VBox field, IBMTableView ibmTableView, AAPLTableView aaplTableView){
+    private final Map<String, Node> views;
+    public TaskBarController(VBox field, Map views){
         taskBar = new TaskBar(this);
         this.field = field;
-        this.ibmTableView = ibmTableView;
-        this.aaplTableView = aaplTableView;
+        this.views = views;
     }
 
     @Override
     public void handle(final Event event) {
         final Object source = event.getSource();
         if(source.equals(taskBar.getLoadAAplButton())) {
-            replaceView(aaplTableView.getParent());
+            replaceView(views.get(taskBar.getLoadAAplButton().getText()));
         }
         else if(source.equals(taskBar.getLoadIBMButton())) {
-            replaceView(aaplTableView.getParent());
+            replaceView(views.get(taskBar.getLoadIBMButton().getText()));
         }
     }
     public TaskBar getView(){

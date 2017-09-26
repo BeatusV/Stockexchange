@@ -15,7 +15,7 @@ import javafx.scene.text.Font;
 /**
  * Created by peter on 26-9-17.
  */
-public class IBMTableView {
+public class IBMTableView implements View{
     private final ObservableList<IbmStockDataModel> data;
     private TableView<IbmStockDataModel> tableView;
     final Label label;

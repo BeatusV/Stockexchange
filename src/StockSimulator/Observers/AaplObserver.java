@@ -1,13 +1,13 @@
-package StockSimulator;
+package StockSimulator.Observers;
 
+import StockSimulator.StockGrabber;
+import StockSimulator.Dictionary.StockNames;
 import StockSimulator.Views.AAPLTableView;
-import javafx.collections.ObservableList;
-import javafx.scene.control.TableView;
 
 /**
  * Created by peter on 25-9-17.
  */
-public class AaplObserver implements Observer{
+public class AaplObserver implements Observer {
     private AAPLTableView view;
     private static int observerIDtracker = 0;
     private int observerID;
@@ -23,6 +23,8 @@ public class AaplObserver implements Observer{
 
     @Override
     public void update() {
-        view.updateView(stockGrabber.getAaplPrice());
+        if(stockGrabber.getUpdated().equals(StockNames.AAPL_NAME.getName())){
+            view.updateView(stockGrabber.getAaplPrice());
+        }
     }
 }

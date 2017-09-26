@@ -1,5 +1,7 @@
-package StockSimulator;
+package StockSimulator.Observers;
 
+import StockSimulator.StockGrabber;
+import StockSimulator.StockModel;
 import javafx.collections.ObservableList;
 import javafx.scene.control.TableView;
 

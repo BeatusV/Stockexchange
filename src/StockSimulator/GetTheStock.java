@@ -1,8 +1,7 @@
 package StockSimulator;
 
-import java.text.DecimalFormat;
-import java.util.Timer;
-import java.util.TimerTask;
+import StockSimulator.Dictionary.StockNames;
+
 public class GetTheStock implements Runnable {
     private String name;
     private double price;

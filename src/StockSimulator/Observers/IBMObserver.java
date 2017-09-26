@@ -1,13 +1,11 @@
-package StockSimulator;
+package StockSimulator.Observers;
 
-import StockSimulator.Models.IbmStockDataModel;
+import StockSimulator.StockGrabber;
+import StockSimulator.Dictionary.StockNames;
 import StockSimulator.Views.IBMTableView;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.scene.control.TableView;
 
 
-public class IBMObserver implements Observer{
+public class IBMObserver implements Observer {
     private IBMTableView view;
     private static int observerIDTracker = 0;
     private int observerID;

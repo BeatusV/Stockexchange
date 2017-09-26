@@ -1,5 +1,8 @@
 package StockSimulator;
 
+import StockSimulator.Dictionary.StockNames;
+import StockSimulator.Observers.Observer;
+
 import java.util.ArrayList;
 
 public class StockGrabber implements Subject {

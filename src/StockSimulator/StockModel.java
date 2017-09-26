@@ -23,9 +23,7 @@ public  class StockModel {
     }
 
     public void setIbm(double ibm){
-        Double number = new Double(ibm);
-        IBM.set(number);
-    }
+            }
     public double getAAPL(){
         return AAPL.get();
     }

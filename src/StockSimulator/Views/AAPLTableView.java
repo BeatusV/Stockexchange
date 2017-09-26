@@ -15,7 +15,7 @@ import javafx.scene.text.Font;
 /**
  * Created by peter on 26-9-17.
  */
-public class AAPLTableView {
+public class AAPLTableView implements View {
 
     private final ObservableList<AaplStockDataModel> data;
     private TableView<AaplStockDataModel> tableView;
