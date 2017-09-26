@@ -12,7 +12,4 @@
            <Button fx:id="taskBarButton2" onAction="#showGraphView" text="Graph" />
        </HBox>
         <GridPane fx:id="content" />
-
-
-
 </VBox>

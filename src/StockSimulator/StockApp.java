@@ -1,40 +1,48 @@
 package StockSimulator;
 
+import StockSimulator.Controllers.TaskBarController;
+import StockSimulator.Views.AAPLTableView;
+import StockSimulator.Views.IBMTableView;
+import StockSimulator.Views.TaskBar;
 import javafx.application.Application;
-import javafx.beans.property.SimpleDoubleProperty;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
+import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+
+
+
 
 import static javafx.fxml.FXMLLoader.load;
 
 public class StockApp extends Application {
-
+    private final VBox vBox = new VBox();
     @Override
     public void start(Stage primaryStage) throws Exception{
-        FXMLLoader loader = new FXMLLoader(
-                getClass().getResource(
-                        "main.fxml"
-                )
-        );
+        IBMTableView ibmTableView = new IBMTableView();
+        AAPLTableView aaplTableView = new AAPLTableView();
+        Scene scene = new Scene(vBox);
+        primaryStage.setTitle("National Stock exchange");
+        primaryStage.setWidth(300);
+        primaryStage.setHeight(500);
+        TaskBarController taskBarController = new TaskBarController(vBox, ibmTableView, aaplTableView);
+        vBox.getChildren().addAll(taskBarController.getView(), ibmTableView.getParent());
 
-        Parent root = loader.load();
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 300, 275));
-        primaryStage.show();
-        Controller controller = loader.<Controller>getController();
-        GridPane tablePane = FXMLLoader.load(getClass().getResource("tableview.fxml"));
-        controller.InitData(tablePane);
+        primaryStage.setScene(scene);
         StockGrabber stockGrabber = new StockGrabber();
-        TableView tableView = (TableView) tablePane.lookup("#tableView");
-        IBMObserver observer1 = new IBMObserver(stockGrabber, tableView);
-        GetTheStock appl = new GetTheStock(20.05, stockGrabber, StockNames.AAPL_NAME.getName());
-        GetTheStock goog = new GetTheStock(20.00, stockGrabber, StockNames.GOOG_NAME.getName());
-        GetTheStock ibm = new GetTheStock(20.00, stockGrabber, StockNames.IBM_NAME.getName());
+        IBMObserver observer1 = new IBMObserver(stockGrabber, ibmTableView);
+        AaplObserver observer2 = new AaplObserver(stockGrabber, aaplTableView);
+        GetTheStock ibmSimulater = new GetTheStock(20,stockGrabber, StockNames.IBM_NAME.getName());
+        GetTheStock aaplSimulater = new GetTheStock(20,stockGrabber, StockNames.AAPL_NAME.getName());
+
+        primaryStage.show();
+
+
+
+
+
     }
 
 
