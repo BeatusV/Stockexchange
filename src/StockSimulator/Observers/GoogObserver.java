@@ -1,7 +1,9 @@
 package StockSimulator.Observers;
 
+import StockSimulator.Dictionary.StockNames;
 import StockSimulator.StockGrabber;
 import StockSimulator.StockModel;
+import StockSimulator.Views.GOOGTableView;
 import javafx.collections.ObservableList;
 import javafx.scene.control.TableView;
 
@@ -9,36 +11,23 @@ import javafx.scene.control.TableView;
  * Created by peter on 25-9-17.
  */
 public class GoogObserver implements Observer {
-    private double googPrice;
-    private TableView tableView;
+    private GOOGTableView view;
     private static int observerIDTracker = 0;
     private int observerID;
     private StockGrabber stockGrabber;
 
-    public GoogObserver(StockGrabber stockGrabber, TableView tableView){
+    public GoogObserver(StockGrabber stockGrabber, GOOGTableView view) {
         this.stockGrabber = stockGrabber;
         this.observerID = ++observerIDTracker;
-        this.tableView = tableView;
+        this.view = view;
         stockGrabber.register(this);
         System.out.println("New Observer " + this.observerID);
     }
+
     @Override
-    public void update(){
-        this.googPrice = stockGrabber.getGoogPrice();
-        printThePrices();
-        updateTableView();
-    }
-    private void updateTableView() {
-        ObservableList<StockModel> data = tableView.getItems();
-        if(data.size() > 0) {
-            StockModel latestRow = data.get(data.size() - 1);
-            data.add(new StockModel(latestRow.getIBM(), latestRow.getAAPL(), googPrice));
+    public void update() {
+        if (stockGrabber.getUpdated().equals(StockNames.GOOG_NAME.getName())) {
+            view.updateView(stockGrabber.getAaplPrice());
         }
-        else {
-            data.add(new StockModel(0.0, 0.0, googPrice));
-        }
-    }
-    private void printThePrices(){
-        System.out.println(observerID + "\nGOOG:" + googPrice + "\n");
     }
 }

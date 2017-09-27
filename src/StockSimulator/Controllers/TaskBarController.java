@@ -35,6 +35,12 @@ public class TaskBarController implements EventHandler{
         else if(source.equals(taskBar.getLoadIBMButton())) {
             replaceView(views.get(taskBar.getLoadIBMButton().getText()));
         }
+        else if(source.equals(taskBar.getLoadGoogButton())) {
+            replaceView(views.get(taskBar.getLoadGoogButton().getText()));
+        }
+        else if(source.equals(taskBar.getLoadAAplGraphButton())){
+            replaceView(views.get("test"));
+        }
     }
     public TaskBar getView(){
         return taskBar;

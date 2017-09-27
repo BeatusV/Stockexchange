@@ -11,19 +11,25 @@ import javafx.scene.layout.HBox;
 public class TaskBar extends HBox {
     final Button loadIBMButton;
     final Button loadAAplButton;
+    final Button loadGoogButton;
+    final Button loadAAplGraphButton;
     private TaskBarController controller;
     public TaskBar(TaskBarController controller){
         this.controller = controller;
         loadIBMButton = new Button(StockNames.IBM_NAME.getName());
         loadAAplButton = new Button(StockNames.AAPL_NAME.getName());
+        loadGoogButton = new Button(StockNames.GOOG_NAME.getName());
+        loadAAplGraphButton = new Button("test");
         setLayout();
         addHandlers();
-        this.getChildren().addAll(loadIBMButton, loadAAplButton);
+        this.getChildren().addAll(loadIBMButton, loadAAplButton, loadGoogButton, loadAAplGraphButton);
     }
 
     private void addHandlers(){
         loadIBMButton.setOnAction(controller);
         loadAAplButton.setOnAction(controller);
+        loadGoogButton.setOnAction(controller);
+        loadAAplGraphButton.setOnAction(controller);
     }
     private void setLayout() {
         this.setSpacing(5);
@@ -33,5 +39,10 @@ public class TaskBar extends HBox {
     }
     public Button getLoadAAplButton(){
         return loadAAplButton;
+    }
+    public Button getLoadGoogButton(){return loadGoogButton;}
+
+    public Button getLoadAAplGraphButton() {
+        return loadAAplGraphButton;
     }
 }
